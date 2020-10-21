@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="22" viewBox="0 0 22 22">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_712" data-name="Rectangle 712" width="22" height="22" transform="translate(0 0)"/>
+    </clipPath>
+  </defs>
+  <g id="Group_956" data-name="Group 956" transform="translate(-1809 -120)">
+    <g id="Group_955" data-name="Group 955">
+      <g id="fabicon-01" transform="translate(1771.996 177.697)">
+        <g id="Group_954" data-name="Group 954" transform="translate(39 -56)">
+          <g id="Group_952" data-name="Group 952" transform="translate(-1.996 -1.697)" clip-path="url(#clip-path)">
+            <path id="Path_763" data-name="Path 763" d="M6.242,5.282h0A1.94,1.94,0,0,0,4.7,7.1,1.916,1.916,0,0,0,6.663,9.067a3.3,3.3,0,0,0,1.121-.28h0s5.888-4.065,6.449-4.346a.515.515,0,0,0,.14-.421c0-.28-.28-.421-.561-.421-.561.14-7.57,1.542-7.57,1.682" transform="translate(4.907 4.044)" fill="#0ba7fd"/>
+          </g>
+          <g id="Group_953" data-name="Group 953" transform="translate(-1.996 -1.697)" clip-path="url(#clip-path)">
+            <path id="Path_764" data-name="Path 764" d="M16.092,11.613a1.387,1.387,0,0,0-.7-.981,1.31,1.31,0,0,0-1.262,0,2.355,2.355,0,0,0-1.121.981,5.178,5.178,0,0,1-5.047,2.243A5.123,5.123,0,0,1,3.334,8.108a4.2,4.2,0,0,1,.841-2.523A5.676,5.676,0,0,1,8.662,2.921a6.852,6.852,0,0,1,1.822.14l.561.28a.515.515,0,0,1,.14.421v.421c0,.14,0,.14.14.28h.28a8.936,8.936,0,0,1,1.262-.28h0c.841-.14,1.542-.28,1.542-.28.28,0,.421-.28.561-.421a.676.676,0,0,0-.14-.841,9.558,9.558,0,0,1-.981-.7A7.251,7.251,0,0,0,9.5.117,8.42,8.42,0,0,0,.11,7.688,8.616,8.616,0,0,0,7.68,17.08a8.439,8.439,0,0,0,7.009-2.8c.28-.28,1.542-1.682,1.4-2.664" transform="translate(3.048 2.62)" fill="#0f6db5"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

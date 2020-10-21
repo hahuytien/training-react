@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="88.5" viewBox="0 0 96 88.5">
+  <g id="アイコン" transform="translate(-672 -232)">
+    <rect id="Rectangle_18420" data-name="Rectangle 18420" width="96" height="88.5" transform="translate(672 232)" fill="#ededed"/>
+    <g id="Rectangle_18421" data-name="Rectangle 18421" transform="translate(688.168 242.5)" fill="#333" stroke="#666" stroke-width="2">
+      <rect width="64.674" height="43" stroke="none"/>
+      <rect x="1" y="1" width="62.674" height="41" fill="none"/>
+    </g>
+    <path id="Path_11794" data-name="Path 11794" d="M0,0H30.53l10.9,10.888V44H0Z" transform="translate(699.284 237)" fill="#f9f9f9"/>
+    <path id="Path_11795" data-name="Path 11795" d="M8.186-11.92,19.128-.808H8.186Z" transform="translate(721.508 248.96)" fill="#ededed"/>
+    <line id="Line_2907" data-name="Line 2907" x2="31.326" transform="translate(704.589 250.75)" fill="none" stroke="#999" stroke-width="1"/>
+    <rect id="Rectangle_18419" data-name="Rectangle 18419" width="47.394" height="9.935" transform="translate(697.263 258)" fill="#2ecc71"/>
+    <text id="CSV" transform="translate(711.916 265.5)" fill="#fff" stroke="#fff" stroke-width="1" font-size="8" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP" letter-spacing="0.15em"><tspan x="0" y="0">CSV</tspan></text>
+    <line id="Line_2908" data-name="Line 2908" x2="31.326" transform="translate(704.589 253.25)" fill="none" stroke="#999" stroke-width="1"/>
+    <line id="Line_2909" data-name="Line 2909" x2="31.326" transform="translate(704.589 267.75)" fill="none" stroke="#999" stroke-width="1"/>
+    <line id="Line_2910" data-name="Line 2910" x2="31.326" transform="translate(704.589 270.25)" fill="none" stroke="#999" stroke-width="1"/>
+    <line id="Line_2911" data-name="Line 2911" x2="31.326" transform="translate(704.589 272.75)" fill="none" stroke="#999" stroke-width="1"/>
+    <line id="Line_2912" data-name="Line 2912" x2="31.326" transform="translate(704.589 275.25)" fill="none" stroke="#999" stroke-width="1"/>
+    <path id="Path_11796" data-name="Path 11796" d="M-8.286,0H56.387l5.239,24.473H-16.749Z" transform="translate(696.455 285)" fill="#f9f9f9"/>
+    <path id="Path_11797" data-name="Path 11797" d="M-3.232,0H58.41l2.266,11.237H-6.533Z" transform="translate(692.411 288.5)" fill="#999"/>
+    <path id="Path_11798" data-name="Path 11798" d="M-1.6,0H14.571l1.023,6H-3.229Z" transform="translate(712.503 301.5)" fill="#999"/>
+    <line id="Line_2913" data-name="Line 2913" x2="78.316" transform="translate(679.832 310.25)" fill="none" stroke="#999" stroke-width="4"/>
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(737.179 271.5)" fill="#2ecc71" stroke="#2ecc71" stroke-width="1">
+      <ellipse cx="6.316" cy="6.25" rx="6.316" ry="6.25" stroke="none"/>
+      <ellipse cx="6.316" cy="6.25" rx="5.816" ry="5.75" fill="none"/>
+    </g>
+    <g id="Path_11799" data-name="Path 11799" transform="translate(743.448 278.76)" fill="#fff">
+      <path d="M 0.7134307622909546 2.940432071685791 L -0.7763692736625671 2.940432071685791 L -0.7763692736625671 -2.511657953262329 L -0.7763692736625671 -3.011657953262329 L -1.276369214057922 -3.011657953262329 L -2.110524654388428 -3.011657953262329 L 0.08373875916004181 -4.86125373840332 L 2.196413516998291 -3.011657953262329 L 1.213430762290955 -3.011657953262329 L 0.7134307622909546 -3.011657953262329 L 0.7134307622909546 -2.511657953262329 L 0.7134307622909546 2.940432071685791 Z" stroke="none"/>
+      <path d="M 0.07756166905164719 -4.202115058898926 L -0.7415600419044495 -3.511658191680908 L -0.2763692438602448 -3.511658191680908 L -0.2763692438602448 -2.511657953262329 L -0.2763692438602448 2.440432071685791 L 0.2134307473897934 2.440432071685791 L 0.2134307473897934 -2.511657953262329 L 0.2134307473897934 -3.511658191680908 L 0.8662261962890625 -3.511658191680908 L 0.07756166905164719 -4.202115058898926 M 0.08991074562072754 -5.520388126373291 L 3.526590824127197 -2.511657953262329 L 1.213430762290955 -2.511657953262329 L 1.213430762290955 3.440432071685791 L -1.276369214057922 3.440432071685791 L -1.276369214057922 -2.511657953262329 L -3.479489326477051 -2.511657953262329 L 0.08991074562072754 -5.520388126373291 Z" stroke="none" fill="#fff"/>
+    </g>
+  </g>
+</svg>

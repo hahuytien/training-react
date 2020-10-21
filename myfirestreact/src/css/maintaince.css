@@ -1,0 +1,84 @@
+/* Start style for maintaince */
+
+@font-face {
+    font-family: "Noto Sans CJK JP";
+    font-family: "Noto Sans CJK JP", sans-serif;
+    src: url("../fonts/NotoSansCJK/NotoSansJP-Light.woff") format("opentype");
+    font-weight: 300
+}
+
+@font-face {
+    font-family: "Noto Sans CJK JP";
+    src: url("../fonts/NotoSansCJK/NotoSansJP-Bold.otf") format("opentype");
+    font-weight: bold
+}
+
+@font-face {
+    font-family: "Noto Sans CJK JP";
+    src: url("../fonts/NotoSansCJK/NotoSansJP-Regular.otf") format("opentype");
+    font-weight: 400
+}
+
+@font-face {
+    font-family: "Noto Sans CJK JP";
+    src: url("../fonts/NotoSansCJK/NotoSansJP-Medium.otf") format("opentype");
+    font-weight: 500
+}
+
+.color-blue {
+    color: #0f6db5
+}
+
+a {
+    text-decoration: none
+}
+
+.font-size-18 {
+    font-size: 18px
+}
+
+body {
+    font-size: 14px;
+    font-family: "Noto Sans CJK JP", sans-serif;
+    line-height: 1.5;
+    color: #666
+}
+
+.align-center {
+    text-align: center
+}
+
+.wrap-maintaince {
+    background: #f9f9f9
+}
+
+.wrap-maintaince .maintaince-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2
+}
+
+.wrap-maintaince .title {
+    letter-spacing: -4px;
+    margin-top: 25px;
+    margin-bottom: 15px
+}
+
+.wrap-maintaince .maintaince-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #f9f9f9;
+    top: 0;
+    left: 0;
+    z-index: 1
+}
+
+.wrap-maintaince .color-blue:focus,
+.wrap-maintaince .color-blue:hover {
+    color: #0f6db5
+}
+
+
