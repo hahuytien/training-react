@@ -10,18 +10,49 @@ class Test extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: Items
+            items: Items,
+            showAlert: false,
+            titleAlert: '',
+ 
         }
+    }
+    
+    handleDeleteItem = (item) => {
+        let {idAlert, items} = this.state;
+        // console.log("aaaaaaaaaaaaaaaa");
+        // console.log("this.state:", this.state);
+        // console.log("this.props:", this.props);
+
+        console.log(items);
+        if(items.length > 0) {
+            for(let i = 0; i < items.length; i++) {
+                if(items[i].id === item.id) {
+                    items.splice(i, 1); 
+                    break;
+                }
+            }
+        }
+        console.log(items);     
+
+        this.setState({
+            items: items,
+            showAlert: false
+        });
     }
 
     renderItem = () => {
         let { items } = this.state;
+        if(items.length === 0) {
+            return <TableListView item={0} />
+        }
         return items.map((item, index) => {
             return (
-                <TableListView index={index + 1} item={item} key={item.id} />
+                <TableListView index={index + 1} item={item} key={item.id} handleDeleteItem={this.handleDeleteItem} drawerOpen={this.state.showAlert}/>
             )
         });
-    }
+    }   
+
+
 
     render() {
         return (
@@ -52,6 +83,7 @@ class Test extends Component {
                                                                     <table className="table-default">
                                                                         <thead>
                                                                             <tr>
+                                                                                <td>ID</td>
                                                                                 <td>役職</td>
                                                                                 <td width="88px" className="text-center" style={{ display: "block", width: "100%", textAlign: "center" }}>操作</td>
                                                                             </tr>

@@ -32,6 +32,11 @@ const Items = [
         id: uuidv1(),
         name: "F1 muốn tổ chức giải đua xe tại Việt Nam vào năm 2020",
         level: 1 // medium
+    },
+    {
+        id: uuidv1(),
+        name: "F1 muốn tổ chức giải đua xe tại Việt Nam vào năm 2020",
+        level: 1 // medium
     }
 ];
 
