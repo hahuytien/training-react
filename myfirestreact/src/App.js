@@ -5,6 +5,8 @@ import './App.css';
 import './css/bootstrap.min.css';
 import './css/setting.css';
 import './css/style_2.css';
+// import Bootraps from './js/bootstrap.min.js';
+// import Jquery from'./js/jquery-3.3.1.min.js';
 import Title from './components/Title';
 import Search from './components/Search';
 import Sort from './components/Sort';
@@ -19,28 +21,26 @@ import Items from './mockdata/Items';
 import ReactDOM from 'react-dom';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     items: Items
-  //   }
-  // }
-
-  // renderItem = () => {
-  //   let { items } = this.state;
-  //   return items.map((item, index) => {
-  //     return (
-  //       <TableListView index={index + 1} item={item} key={item.id} />
-  //     )
-  //   });
-  // }
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
+
+        <div className="container">
+          <div className="row">
+            <Test />
+          </div>
+        </div>
+
+      </div>
+    );
+  }
+}
+
+export default App;
+
 
 
 
@@ -65,19 +65,3 @@ class App extends Component {
         </div>
         <ListItem />
       </div> */}
-
-
-        <div className="container">
-          <div className="row">
-            <Test />
-          </div>
-        </div>
-
-
-      </div>
-    );
-  }
-}
-
-
-export default App;

@@ -9,20 +9,9 @@ class TableListView extends Component {
         this.state = {
             showAlert: false,
             titleAlert: '',
-            idAlert: ''
+            idAlert: '',
+            showForm: false
         }
-    }
-
-    // getInitialState() {
-    //     return {
-    //         items: {},
-    //     };
-    // }
-    componentWillReceiveProps(props) {
-        console.log(props.drawerOpen);
-        this.setState({
-            showAlert: false
-        });
     }
 
     handleShowAlert = (item) => {
@@ -34,18 +23,15 @@ class TableListView extends Component {
         });
     }
 
+    handleDeleteItem = (item) => {
+        this.setState({
+            showAlert: false
+        });
+        this.props.handleDeleteItem(item);
+    }
+
     render() {
         let { item, index } = this.props;
-        // if(item === 0) {
-        //     return (
-        //         <tr>
-        //             <td colSpan="4" className="text-center">  
-        //                 <h4>No Item</h4>
-        //             </td>
-        //         </tr>
-        //     )
-        // }
-
         return (
 
             <tr>
@@ -56,7 +42,9 @@ class TableListView extends Component {
                     {item.name}
                 </td>
                 <td className="text-center">
-                    <a title="" className="icon-primary icon-edit "></a>
+                    <a title="" className="icon-primary icon-edit " onClick={(event)=>{ 
+                            this.props.showModalEdit(true)
+                        }}></a>
                     {/* <a title="" className="icon-primary icon-erase "></a> */}
                     <button onClick={() => this.handleShowAlert(item)} className="icon-primary icon-erase "></button>
                     <SweetAlert
@@ -67,7 +55,7 @@ class TableListView extends Component {
                         onOutsideClick={() => this.setState({ showAlert: false })}
                         onEscapeKey={() => this.setState({ showAlert: false })}
                         onCancel={() => this.setState({ showAlert: false })}
-                        onConfirm={() => this.props.handleDeleteItem(item)}
+                        onConfirm={() => this.handleDeleteItem(item)}
                     />
                 </td>
             </tr>

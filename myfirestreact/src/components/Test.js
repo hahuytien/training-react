@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import TitleModal from './TitleModal';
 import Sidebar from './Sidebar';
 import TableListView from './TableListView';
-import Title from './Title';
-import TitleModal from './TitleModal';
-import FormButton from './FormButton';
 import Items from '../mockdata/Items';
+import FormButton from './FormButton';
+import Form from './Form';
+import Modal from './Modal';
+import { v1 as uuidv1 } from 'uuid';
 
 class Test extends Component {
     constructor(props) {
@@ -13,46 +15,73 @@ class Test extends Component {
             items: Items,
             showAlert: false,
             titleAlert: '',
- 
+            showCreate: false,
+            valueItem: ''
+
         }
     }
-    
-    handleDeleteItem = (item) => {
-        let {idAlert, items} = this.state;
-        // console.log("aaaaaaaaaaaaaaaa");
-        // console.log("this.state:", this.state);
-        // console.log("this.props:", this.props);
 
-        console.log(items);
-        if(items.length > 0) {
-            for(let i = 0; i < items.length; i++) {
-                if(items[i].id === item.id) {
-                    items.splice(i, 1); 
+    showModal = () => {
+        this.setState({ showCreate: true });
+    };
+    showModalEdit = (value) => {
+        this.setState({ showCreate: value });
+    };
+
+    hideModal = () => {
+        this.setState({ showCreate: false });
+    };
+
+    handleDeleteItem = (item) => {
+        let { idAlert, items } = this.state;
+
+        if (items.length > 0) {
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].id === item.id) {
+                    items.splice(i, 1);
                     break;
                 }
             }
         }
-        console.log(items);     
 
         this.setState({
-            items: items,
-            showAlert: false
+            items: items
         });
     }
 
+
+    handleFormInputChange = (value) => {
+        console.log("value:", value);
+
+        let {valueItem,levelItem} = this.state;
+        if(valueItem.trim() === 0) return false;
+        let newItem = {
+            id: uuidv1(),
+            name: value
+        }; 
+        Items.push(newItem);
+        this.setState({
+            items: Items,
+            valueItem: '',
+            showCreate: false
+        });
+    }
+
+
     renderItem = () => {
         let { items } = this.state;
-        if(items.length === 0) {
-            return <TableListView item={0} />
-        }
+
         return items.map((item, index) => {
             return (
-                <TableListView index={index + 1} item={item} key={item.id} handleDeleteItem={this.handleDeleteItem} drawerOpen={this.state.showAlert}/>
+                <TableListView
+                index={index + 1}
+                item={item}
+                key={item.id}
+                handleDeleteItem={this.handleDeleteItem}
+                showModalEdit={this.showModalEdit} />
             )
         });
-    }   
-
-
+    }
 
     render() {
         return (
@@ -76,8 +105,15 @@ class Test extends Component {
                                                                 <div className="block-feedback background-feedback magin-top-5">
                                                                     表示順の上位にある役職が優先して社員詳細や社員選択時のサジェストの役職名に表示されます。
                                                                 </div>
-                                                                <div>
-                                                                    <a title="" id="createTest" className="button-primary btn-padding btn btn-primary btn btn-info">追加</a>
+                                                                <div id="modal-create">
+                                                                    <a onClick={this.showModal} title="" id="createTest" className="button-primary btn-padding btn btn-primary btn btn-info" >追加</a>
+                                                                    <Modal show={this.state.showCreate} handleClose={this.hideModal} handleCreate={this.handleFormInputChange} valueItem={this.state.valueItem}>
+                                                                        <p>Modal</p>
+                                                                        <p>Data</p>
+                                                                    </Modal>
+                                                                    {/* <button onClick={this.showModal} type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                                        Launch demo modal
+                                                                    </button> */}
                                                                 </div>
                                                                 <div>
                                                                     <table className="table-default">
