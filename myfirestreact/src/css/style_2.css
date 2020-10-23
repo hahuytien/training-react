@@ -27756,8 +27756,8 @@ table {
   border-radius: 12px;
   color: #666;
   position: absolute;
-  top: 28px;
-  left: 50%;
+  /* top: 28px;
+  left: 50%; */
   z-index: 1;
 }
 
@@ -45764,6 +45764,8 @@ a.btn-button.button-pale.btn.btn-default {
   width:100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+  transition: all ease 1s;
+
 }
 
 .modal-main {
@@ -45778,10 +45780,46 @@ a.btn-button.button-pale.btn.btn-default {
 }
 
 .display-block {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: show .1s;
 }
 
 .display-none {
   display: none;
+  animation: hide .1s;
+}
+
+@keyframes hide {
+  from{
+      z-index:2;
+transform: scale(1);
+    opacity:1;
+  } to{
+      z-index:-1;
+transform: scale(0);
+    opacity: 0;
+  }
+}
+.showModal{
+  opacity:1;
+    z-index:2;
+  animation: show .2s;
+  
+transform: scale(1);
+}
+@keyframes show {
+  from{
+    
+transform: scale(0);
+    opacity:0;
+      z-index:-1;
+  } to{
+    
+transform: scale(1);
+    opacity: 1;
+      z-index:2;
+  }
 }
 /* LUV 8/10 */

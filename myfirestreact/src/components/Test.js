@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import TitleModal from './TitleModal';
 import Sidebar from './Sidebar';
 import TableListView from './TableListView';
-import Items from '../mockdata/Items';
+import Items1 from '../mockdata/Items';
 import FormButton from './FormButton';
 import Form from './Form';
 import Modal from './Modal';
 import { v1 as uuidv1 } from 'uuid';
+import Items from '../mockdata/data.json';
+var fs = require('fs');
+const promisify = require('util').promisify;
+
 
 class Test extends Component {
     constructor(props) {
@@ -17,9 +21,11 @@ class Test extends Component {
             titleAlert: '',
             showCreate: false,
             showEdit: false,
-            valueItem: ''
+            valueItem: '',
+            dataFile: Items
 
         }
+        // this.hideModalKeyPress = this.hideModalKeyPress.bind(this);
     }
 
     showModal = () => {
@@ -45,6 +51,16 @@ class Test extends Component {
          });
     };
 
+    hideModalKeyPress = (event) => {
+        if(event.keyCode === 27){
+            this.setState({ 
+                showCreate: false,
+                showEdit: false
+            });
+        }
+
+    };
+
     handleDeleteItem = (item) => {
         let { idAlert, items } = this.state;
 
@@ -63,21 +79,17 @@ class Test extends Component {
     }
 
 
-    handleFormInputChange = (value, show, showEdit, idEdit) => {
+    handleFormInputChange = (valueEdit, show, showEdit, idEdit) => {
         this.setState({
-            valueItem: value
+            valueItem: valueEdit
         });
-        console.log("value:", value);
-        console.log("show:", show);
-
-        console.log("showEdit:", showEdit);
 
         if(show) {
             let {valueItem,levelItem} = this.state;
             if(valueItem.trim() === 0) return false;
             let newItem = {
                 id: uuidv1(),
-                name: value
+                name: valueEdit
             }; 
             Items.push(newItem);
             this.setState({
@@ -85,13 +97,18 @@ class Test extends Component {
                 valueItem: '',
                 showCreate: false
             });
-        }
-        if(showEdit) {
-            let {idEdit} = this.state;
+
+            const writeJsonFile = require('write-json-file');
+ 
+            (async () => {
+                await writeJsonFile('/mockdata/data.json', Items);
+            })();
+            
+        } else if(showEdit) {
             if(Items.length > 0) { 
                 for(let i = 0; i < Items.length; i++) {
                     if(Items[i].id === idEdit) {
-                        Items[i].name = value;
+                        Items[i].name = valueEdit;
                         break;
                     }
                 }
@@ -133,6 +150,7 @@ class Test extends Component {
     }
 
     render() {
+        console.log("this state:", this.state);
         return (
             <div className="modal popup-esr popup-esr4 user-popup-page popup-align-right show" id="popup-esr" aria-hidden="true">
                 <div className="modal-dialog form-popup">
@@ -159,6 +177,7 @@ class Test extends Component {
                                                                     <Modal show={this.state.showCreate}
                                                                         showEdit={this.state.showEdit}
                                                                         handleClose={this.hideModal}
+                                                                        hideModalKeyPress={this.hideModalKeyPress}
                                                                         handleCreate={this.handleFormInputChange}
                                                                         handleEditItem = {this.handleEditItem}
                                                                         valueItem={this.state.valueItem}

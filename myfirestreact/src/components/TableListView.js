@@ -32,6 +32,7 @@ class TableListView extends Component {
 
     render() {
         let { item, index } = this.props;
+        console.log("this.props:",this.props);
         return (
 
             <tr>

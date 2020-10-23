@@ -21,16 +21,36 @@ import Items from './mockdata/Items';
 import ReactDOM from 'react-dom';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        keyCode: ""
+      }
+  }
+
+  hideModalKeyPress = (event) => {
+    console.log("keycode:", event);
+        // if(event.keyCode === 27){
+        //     this.setState({ 
+        //         showCreate: false,
+        //         showEdit: false
+        //     });
+        // }
+        // this.setState({
+        //   keyCode: event
+        // })
+
+    };
   render() {
     return (
-      <div className="App">
+      <div className="App"  onKeyDown ={(event) => this.hideModalKeyPress(event)} tabIndex="0">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
 
         <div className="container">
           <div className="row">
-            <Test />
+            <Test hideModalKeyPress={this.hideModalKeyPress(this.state.keyCode)}/>
           </div>
         </div>
 

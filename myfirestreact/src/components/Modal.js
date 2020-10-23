@@ -22,7 +22,7 @@ class Modal extends Component {
     }
 
     render() {
-        let { handleClose, show, children, handleCreate, showEdit, idEdit } = this.props;
+        let { handleClose, hideModalKeyPress, show, children, handleCreate, showEdit, idEdit } = this.props;
         const showHideClassName = (show || showEdit) ? "modal display-block" : "modal display-none";
         console.log("idEdit:", idEdit);
        
@@ -33,7 +33,7 @@ class Modal extends Component {
         // }
 
         return (
-            <div className={showHideClassName}>
+            <div className={showHideClassName} onKeyDown ={(event) => hideModalKeyPress(event)} tabIndex="0">
                 {/* <section className="modal-main">
 
 
