@@ -22,8 +22,15 @@ class Modal extends Component {
     }
 
     render() {
-        let { handleClose, show, children, handleCreate } = this.props;
-        const showHideClassName = show ? "modal display-block" : "modal display-none";
+        let { handleClose, show, children, handleCreate, showEdit, idEdit } = this.props;
+        const showHideClassName = (show || showEdit) ? "modal display-block" : "modal display-none";
+        console.log("idEdit:", idEdit);
+       
+        // console.log(this.props.valueItem);
+        // var valueItem = showEdit ? this.props.valueItem : '';
+        // if(showEdit) {
+        //     this.state.valueItem = this.props.valueItem;
+        // }
 
         return (
             <div className={showHideClassName}>
@@ -50,8 +57,8 @@ class Modal extends Component {
                             <label className="title mt-4 font-weight-bold">役職名</label>
                         </div>
                         <div>
-                            <input type="text" className="input-normal mt-2" placeholder="役職名を入力" autoComplete="off" value={this.state.valueItem}
-                            onChange={(event)=>this.handleFormInputChange(event.target.value)} />
+                            <input type="text" className="input-normal mt-2" placeholder="役職名を入力" autoComplete="off" value={this.props.valueItem}
+                            onChange={(event)=>this.props.handleCreate(event.target.value)} />
                         </div>
                         <div>
                             <a title="" className="button-primary btn-padding w100 mt-2 text-center">他言語を表示</a>
@@ -75,7 +82,7 @@ class Modal extends Component {
                     <div className="table-tooltip-box-footer">
                         <a onClick={handleClose} title="" className="button-cancel">キャンセル</a>
                         <a onClick={(event)=>{
-                            this.props.handleCreate(this.state.valueItem);
+                            this.props.handleCreate(this.props.valueItem, show, showEdit, idEdit);
                             this.resetName();
                             }} title="" className="button-blue">追加</a>
                     </div>

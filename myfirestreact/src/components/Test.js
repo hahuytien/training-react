@@ -16,20 +16,33 @@ class Test extends Component {
             showAlert: false,
             titleAlert: '',
             showCreate: false,
+            showEdit: false,
             valueItem: ''
 
         }
     }
 
     showModal = () => {
-        this.setState({ showCreate: true });
+        this.setState({ 
+            showCreate: true,
+            showEdit: false,
+            valueItem: ''
+
+        });
     };
-    showModalEdit = (value) => {
-        this.setState({ showCreate: value });
+    showModalEdit = (value, name) => {
+        this.setState({ 
+            showEdit: value,
+            valueItem: name,
+            showCreate: false
+        });
     };
 
     hideModal = () => {
-        this.setState({ showCreate: false });
+        this.setState({ 
+            showCreate: false,
+            showEdit: false
+         });
     };
 
     handleDeleteItem = (item) => {
@@ -50,20 +63,55 @@ class Test extends Component {
     }
 
 
-    handleFormInputChange = (value) => {
-        console.log("value:", value);
-
-        let {valueItem,levelItem} = this.state;
-        if(valueItem.trim() === 0) return false;
-        let newItem = {
-            id: uuidv1(),
-            name: value
-        }; 
-        Items.push(newItem);
+    handleFormInputChange = (value, show, showEdit, idEdit) => {
         this.setState({
-            items: Items,
-            valueItem: '',
-            showCreate: false
+            valueItem: value
+        });
+        console.log("value:", value);
+        console.log("show:", show);
+
+        console.log("showEdit:", showEdit);
+
+        if(show) {
+            let {valueItem,levelItem} = this.state;
+            if(valueItem.trim() === 0) return false;
+            let newItem = {
+                id: uuidv1(),
+                name: value
+            }; 
+            Items.push(newItem);
+            this.setState({
+                items: Items,
+                valueItem: '',
+                showCreate: false
+            });
+        }
+        if(showEdit) {
+            let {idEdit} = this.state;
+            if(Items.length > 0) { 
+                for(let i = 0; i < Items.length; i++) {
+                    if(Items[i].id === idEdit) {
+                        Items[i].name = value;
+                        break;
+                    }
+                }
+            }
+            this.setState({
+                items: Items,
+                valueItem: '',
+                showEdit: false
+            });
+        }
+
+    }
+
+    handleEditItem = (index,item) => {
+        this.setState({
+            indexEdit: index,
+            idEdit: item.id,
+            nameEdit: item.name,
+            levelEdit: item.level,
+            valueItem: item.name
         });
     }
 
@@ -78,7 +126,8 @@ class Test extends Component {
                 item={item}
                 key={item.id}
                 handleDeleteItem={this.handleDeleteItem}
-                showModalEdit={this.showModalEdit} />
+                showModalEdit={this.showModalEdit} 
+                handleEditItem={this.handleEditItem}/>
             )
         });
     }
@@ -107,7 +156,13 @@ class Test extends Component {
                                                                 </div>
                                                                 <div id="modal-create">
                                                                     <a onClick={this.showModal} title="" id="createTest" className="button-primary btn-padding btn btn-primary btn btn-info" >追加</a>
-                                                                    <Modal show={this.state.showCreate} handleClose={this.hideModal} handleCreate={this.handleFormInputChange} valueItem={this.state.valueItem}>
+                                                                    <Modal show={this.state.showCreate}
+                                                                        showEdit={this.state.showEdit}
+                                                                        handleClose={this.hideModal}
+                                                                        handleCreate={this.handleFormInputChange}
+                                                                        handleEditItem = {this.handleEditItem}
+                                                                        valueItem={this.state.valueItem}
+                                                                        idEdit = {this.state.idEdit}>
                                                                         <p>Modal</p>
                                                                         <p>Data</p>
                                                                     </Modal>

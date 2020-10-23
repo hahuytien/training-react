@@ -43,7 +43,8 @@ class TableListView extends Component {
                 </td>
                 <td className="text-center">
                     <a title="" className="icon-primary icon-edit " onClick={(event)=>{ 
-                            this.props.showModalEdit(true)
+                            this.props.showModalEdit(true, item.name);
+                            this.props.handleEditItem(index,item);
                         }}></a>
                     {/* <a title="" className="icon-primary icon-erase "></a> */}
                     <button onClick={() => this.handleShowAlert(item)} className="icon-primary icon-erase "></button>
